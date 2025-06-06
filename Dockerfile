@@ -1,6 +1,4 @@
-FROM ubuntu:24.04
-
-RUN <<EOF
-apt-get update
-apt-get install -y nginx
-EOF
+FROM golang:alpine
+COPY main.go .
+RUN go build main.go
+CMD ["./main"]
